@@ -107,7 +107,7 @@
     </style>
 
 <script>
-  const senhaCorreta = "zamorinha25";
+  const senhaCorreta = "zamorinha";
   function verificarSenha() {
     const senhaDigitada = prompt("Digite a senha para acessar o simulador:");
     if (senhaDigitada === senhaCorreta) {
@@ -117,12 +117,19 @@
       window.location.href = "https://www.google.com";
     }
   }
-  window.onload = verificarSenha;
+
+  window.onload = function () {
+    verificarSenha();
+    if (typeof atualizarPrecoCliente === 'function') atualizarPrecoCliente();
+    if (typeof atualizarPrecoCompra === 'function') atualizarPrecoCompra();
+    const botaoWhats = document.getElementById('whatsappButton');
+    if (botaoWhats) botaoWhats.style.display = 'none';
+  };
 </script>
 
 </head>
 <body>
-  <div id="conteudo" style="display:none">
+<div id="conteudo" style="display:none;">
     <div class="container">
         <h1>Rops do Zamora</h1>
         <p style="text-align: center; margin-top: -10px;">
@@ -425,6 +432,6 @@
             document.getElementById('whatsappButton').style.display = 'none';
         };
     </script>
-  </div>
+</div>
 </body>
 </html>
